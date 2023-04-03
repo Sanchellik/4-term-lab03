@@ -1,11 +1,17 @@
 package ru.gozhan.lab03pgsql.config;
 
+import ru.gozhan.lab03pgsql.constants.MovieFormatEnum;
+import ru.gozhan.lab03pgsql.tables_basic.Hall;
 import ru.gozhan.lab03pgsql.user.Admin;
 import ru.gozhan.lab03pgsql.user.Client;
 import ru.gozhan.lab03pgsql.util.DbAdmin;
 import ru.gozhan.lab03pgsql.util.DbClient;
+import ru.gozhan.lab03pgsql.util.DbHall;
 import ru.gozhan.lab03pgsql.util.impl.DbAdminImpl;
 import ru.gozhan.lab03pgsql.util.impl.DbClientImpl;
+import ru.gozhan.lab03pgsql.util.impl.DbHallImpl;
+
+import java.util.ArrayList;
 
 public class BasicDbConfig {
 
@@ -23,11 +29,12 @@ public class BasicDbConfig {
         return true;
     }
 
-    public static void fillAllDb() {
+    public static void fillAllDbs() {
         fillAdmins();
         fillClients();
         fillHalls(); //TODO add fillHalls();
 //        fillCinemas(); //TODO add fillCinemas();
+//        fillMovies(); //TODO add fillMovies();
 //        fillSessions(); //TODO add fillSessions();
     }
 
@@ -48,7 +55,11 @@ public class BasicDbConfig {
     }
 
     public static void fillHalls() {
+        DbHall dbHall = new DbHallImpl();
 
+        dbHall.insert(new Hall(MovieFormatEnum.FORMAT_2D, 20, 500));
+        dbHall.insert(new Hall(MovieFormatEnum.FORMAT_3D, 10, 750));
+        dbHall.insert(new Hall(MovieFormatEnum.FORMAT_4D, 5, 1750));
     }
 
 }
