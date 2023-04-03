@@ -5,13 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="806752c8-5ca7-402d-9715-f8a979d5db06" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/config/BasicDbConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/user/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/user/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/user/Discountable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/user/Discountable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/util/DbClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/util/DbClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/util/impl/DbClientImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/util/impl/DbClientImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,7 +85,7 @@
       <workItem from="1680536628420" duration="184000" />
       <workItem from="1680536821056" duration="912000" />
       <workItem from="1680537742377" duration="396000" />
-      <workItem from="1680538146340" duration="2952000" />
+      <workItem from="1680538146340" duration="4449000" />
     </task>
     <servers />
   </component>
