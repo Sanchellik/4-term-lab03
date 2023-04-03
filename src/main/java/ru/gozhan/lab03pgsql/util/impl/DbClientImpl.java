@@ -1,7 +1,6 @@
 package ru.gozhan.lab03pgsql.util.impl;
 
-import ru.gozhan.lab03pgsql.config.DbConfig;
-import ru.gozhan.lab03pgsql.constants.ClientStatusEnum;
+import ru.gozhan.lab03pgsql.config.ConnectToDbConfig;
 import ru.gozhan.lab03pgsql.user.Client;
 import ru.gozhan.lab03pgsql.util.DbClient;
 
@@ -15,7 +14,7 @@ public class DbClientImpl implements DbClient {
 
         ArrayList<Client> clients = new ArrayList<>();
 
-        try (Connection conn = DbConfig.getConnection();
+        try (Connection conn = ConnectToDbConfig.getConnection();
              PreparedStatement preparedStatement = conn.prepareStatement(SQL_SELECT_ALL)) {
 
             ResultSet resultSet = preparedStatement.executeQuery();
@@ -55,7 +54,7 @@ public class DbClientImpl implements DbClient {
 
     @Override
     public void insert(Client client) {
-        try (Connection conn = DbConfig.getConnection();
+        try (Connection conn = ConnectToDbConfig.getConnection();
              PreparedStatement preparedStatement = conn.prepareStatement(SQL_INSERT)) {
 
             preparedStatement.setString(1, client.getName());

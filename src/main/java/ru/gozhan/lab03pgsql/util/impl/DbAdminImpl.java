@@ -1,6 +1,6 @@
 package ru.gozhan.lab03pgsql.util.impl;
 
-import ru.gozhan.lab03pgsql.config.DbConfig;
+import ru.gozhan.lab03pgsql.config.ConnectToDbConfig;
 import ru.gozhan.lab03pgsql.user.Admin;
 import ru.gozhan.lab03pgsql.util.DbAdmin;
 
@@ -14,7 +14,7 @@ public class DbAdminImpl implements DbAdmin {
 
         ArrayList<Admin> admins = new ArrayList<>();
 
-        try (Connection conn = DbConfig.getConnection();
+        try (Connection conn = ConnectToDbConfig.getConnection();
              PreparedStatement preparedStatement = conn.prepareStatement(SQL_SELECT_ALL)) {
 
             ResultSet resultSet = preparedStatement.executeQuery();
@@ -44,7 +44,7 @@ public class DbAdminImpl implements DbAdmin {
 
     @Override
     public void insert(Admin admin) {
-        try (Connection conn = DbConfig.getConnection();
+        try (Connection conn = ConnectToDbConfig.getConnection();
              PreparedStatement preparedStatement = conn.prepareStatement(SQL_INSERT)) {
 
             preparedStatement.setString(1, admin.getEmail());

@@ -27,8 +27,8 @@ public class BasicDbConfig {
         fillAdmins();
         fillClients();
         fillHalls();
-        fillCinemas();
-        fillSessions();
+//        fillCinemas();
+//        fillSessions();
     }
 
     public static void fillAdmins() {

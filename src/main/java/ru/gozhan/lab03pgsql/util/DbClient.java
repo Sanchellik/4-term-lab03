@@ -13,4 +13,6 @@ public interface DbClient {
     ArrayList<Client> getAll();
     void insert(Client client);
 
+    //TODO add updateBalanceAfterOrder();
+
 }
