@@ -7,8 +7,8 @@ import java.util.ArrayList;
 public interface DbClient {
 
     String SQL_SELECT_ALL = "SELECT * FROM clients";
-    String SQL_INSERT = "INSERT INTO clients (client_name, client_email, client_password, client_budget, client) VALUES " +
-            "(?, ?)";
+    String SQL_INSERT = "INSERT INTO clients (client_name, client_email, client_password, client_budget, " +
+            "client_number_of_trips) VALUES (?, ?, ?, ?, ?)";
 
     ArrayList<Client> getAll();
     void insert(Client client);

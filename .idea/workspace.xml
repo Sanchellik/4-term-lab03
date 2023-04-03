@@ -5,33 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="806752c8-5ca7-402d-9715-f8a979d5db06" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jpa-buddy.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/config/DbConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/console/AdminPanel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/console/ClientPanel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/console/CommonMenu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/constants/ClientStatusEnum.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/constants/GenreEnum.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/constants/MovieFormatEnum.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/tables_basic/Hall.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/tables_basic/Movie.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/tables_complex/Cinema.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/tables_complex/Order.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/tables_complex/Session.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/user/Admin.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/user/Client.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/user/Discountable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/util/DbAdmin.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/util/DbClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/util/impl/DbAdminImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/util/impl/DbClientImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/user/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/user/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/user/Discountable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/user/Discountable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/util/DbClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/util/DbClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/util/impl/DbClientImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/util/impl/DbClientImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,13 +32,6 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="MavenImportPreferences">
-    <option name="importingSettings">
-      <MavenImportingSettings>
-        <option name="workspaceImportEnabled" value="true" />
-      </MavenImportingSettings>
-    </option>
-  </component>
   <component name="ProjectId" id="2Ns4RGHYb6LvRmFRSGaEk10CwH3" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -75,10 +48,13 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "git-widget-placeholder": "master",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
     "settings.editor.selected.configurable": "preferences.lookFeel",
     "vue.rearranger.settings.migration": "true"
   }
@@ -106,6 +82,14 @@
       <option name="presentableId" value="Default" />
       <updated>1680439445888</updated>
       <workItem from="1680439447179" duration="10785000" />
+      <workItem from="1680454356911" duration="539000" />
+      <workItem from="1680512861408" duration="3614000" />
+      <workItem from="1680535079817" duration="1125000" />
+      <workItem from="1680536213757" duration="407000" />
+      <workItem from="1680536628420" duration="184000" />
+      <workItem from="1680536821056" duration="912000" />
+      <workItem from="1680537742377" duration="396000" />
+      <workItem from="1680538146340" duration="2952000" />
     </task>
     <servers />
   </component>

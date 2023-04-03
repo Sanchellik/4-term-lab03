@@ -7,7 +7,6 @@ import ru.gozhan.lab03pgsql.constants.ClientStatusEnum;
 
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
 public class Client implements Discountable {
 
     private int id;
@@ -21,13 +20,23 @@ public class Client implements Discountable {
 
     private ClientStatusEnum status;
 
-    public Client(String name, String email, String password, int budget, int numberOfTrips, ClientStatusEnum status) {
+    public Client(String name, String email, String password, int budget, int numberOfTrips) {
         this.name = name;
         this.email = email;
         this.password = password;
         this.budget = budget;
         this.numberOfTrips = numberOfTrips;
-        this.status = status;
+        this.status = calculateStatus(numberOfTrips);
+    }
+
+    public Client(int id, String name, String email, String password, int budget, int numberOfTrips) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.password = password;
+        this.budget = budget;
+        this.numberOfTrips = numberOfTrips;
+        this.status = calculateStatus(numberOfTrips);
     }
 
     @Override
@@ -38,6 +47,17 @@ public class Client implements Discountable {
             return 0.1;
         } else {
             return 0;
+        }
+    }
+
+    @Override
+    public ClientStatusEnum calculateStatus(int numberOfTrips) {
+        if (numberOfTrips <= 3) {
+            return ClientStatusEnum.NEW;
+        } else if (numberOfTrips <= 7) {
+            return ClientStatusEnum.FRIEND;
+        } else {
+            return ClientStatusEnum.VIP;
         }
     }
 
