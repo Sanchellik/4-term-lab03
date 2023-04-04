@@ -13,12 +13,11 @@ public class Main {
 //        if (!BasicDbConfig.checkBasicDbFilling()) {
 //            BasicDbConfig.fillAllDbs();
 //        }
+//        CommonMenu.whatWeWillDo();
 
 //        BasicDbConfig.fillAdmins();
 
-        BasicDbConfig.fillClients();
-
-//        CommonMenu.whatWeWillDo();
+//        BasicDbConfig.fillClients();
 
 //        BasicDbConfig.fillHalls();
 
