@@ -14,6 +14,10 @@ public class Main {
 //            BasicDbConfig.fillAllDbs();
 //        }
 
+//        BasicDbConfig.fillAdmins();
+
+        BasicDbConfig.fillClients();
+
 //        CommonMenu.whatWeWillDo();
 
 //        BasicDbConfig.fillHalls();
@@ -26,7 +30,7 @@ public class Main {
 //        DbFilm dbFilm = new DbFilmImpl();
 //        dbFilm.getAll().forEach(System.out::println);
 
-        BasicDbConfig.fillCinemas();
+//        BasicDbConfig.fillCinemas();
 
 //        DbCinema dbCinema = new DbCinemaImpl();
 //        dbCinema.getAll().forEach(System.out::println);

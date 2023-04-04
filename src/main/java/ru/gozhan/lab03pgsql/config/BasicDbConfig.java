@@ -4,16 +4,11 @@ import ru.gozhan.lab03pgsql.constants.GenreEnum;
 import ru.gozhan.lab03pgsql.constants.MovieFormatEnum;
 import ru.gozhan.lab03pgsql.tables_basic.Cinema;
 import ru.gozhan.lab03pgsql.tables_basic.Film;
+import ru.gozhan.lab03pgsql.tables_complex.Hall;
 import ru.gozhan.lab03pgsql.user.Admin;
 import ru.gozhan.lab03pgsql.user.Client;
-import ru.gozhan.lab03pgsql.util.DbAdmin;
-import ru.gozhan.lab03pgsql.util.DbCinema;
-import ru.gozhan.lab03pgsql.util.DbClient;
-import ru.gozhan.lab03pgsql.util.DbFilm;
-import ru.gozhan.lab03pgsql.util.impl.DbAdminImpl;
-import ru.gozhan.lab03pgsql.util.impl.DbCinemaImpl;
-import ru.gozhan.lab03pgsql.util.impl.DbClientImpl;
-import ru.gozhan.lab03pgsql.util.impl.DbFilmImpl;
+import ru.gozhan.lab03pgsql.util.*;
+import ru.gozhan.lab03pgsql.util.impl.*;
 
 import java.time.LocalTime;
 import java.util.ArrayList;
@@ -39,7 +34,7 @@ public class BasicDbConfig {
         fillAdmins();
         fillClients();
         fillFilms();
-//        fillCinemas(); //TODO add fillCinemas();
+        fillCinemas();
 //        fillHalls(); //TODO add fillHalls();
 //        fillSessions(); //TODO add fillSessions();
     }
@@ -68,7 +63,7 @@ public class BasicDbConfig {
         dbFilm.insert(new Film("It", GenreEnum.HORROR, LocalTime.of(1, 50)));
     }
 
-    public static void fillCinemas() { //TODO this before halls
+    public static void fillCinemas() {
         DbCinema dbCinema = new DbCinemaImpl();
 
         dbCinema.insert(new Cinema("KinoMax", "Krasnodar",
@@ -83,12 +78,17 @@ public class BasicDbConfig {
                         MovieFormatEnum.FORMAT_4D))));
     }
 
-//    public static void fillHalls() { //TODO rewrite this with cinema_id
-//        DbHall dbHall = new DbHallImpl();
-//
-//        dbHall.insert(new Hall(MovieFormatEnum.FORMAT_2D, 20, 500));
-//        dbHall.insert(new Hall(MovieFormatEnum.FORMAT_3D, 10, 750));
-//        dbHall.insert(new Hall(MovieFormatEnum.FORMAT_4D, 5, 1750));
-//    }
+    public static void fillHalls() { //TODO rewrite this with cinema_id
+        DbHall dbHall = new DbHallImpl();
+
+        dbHall.insert(new Hall(MovieFormatEnum.FORMAT_2D, 20, 500, 1));
+        dbHall.insert(new Hall(MovieFormatEnum.FORMAT_2D, 25, 450, 2));
+
+        dbHall.insert(new Hall(MovieFormatEnum.FORMAT_3D, 15, 750, 1));
+        dbHall.insert(new Hall(MovieFormatEnum.FORMAT_3D, 10, 1000, 2));
+
+        dbHall.insert(new Hall(MovieFormatEnum.FORMAT_4D, 5, 1500, 1));
+        dbHall.insert(new Hall(MovieFormatEnum.FORMAT_4D, 2, 2500, 2));
+    }
 
 }

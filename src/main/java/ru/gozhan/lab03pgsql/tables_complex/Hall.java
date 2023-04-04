@@ -21,15 +21,17 @@ public class Hall {
 
     private int cinemaId; //TODO rewrite with it
 
-    public Hall(int id, MovieFormatEnum supportedFormat, int countSeats, int seatCost) {
+    public Hall(int id, MovieFormatEnum supportedFormat, int countSeats, int seatCost, int cinemaId) {
         this.id = id;
         this.supportedFormat = supportedFormat;
         this.costOfSpaces = fillCostOfSpaces(countSeats, seatCost);
+        this.cinemaId = cinemaId;
     }
 
-    public Hall(MovieFormatEnum supportedFormat, int countSeats, int seatCost) {
+    public Hall(MovieFormatEnum supportedFormat, int countSeats, int seatCost, int cinemaId) {
         this.supportedFormat = supportedFormat;
         this.costOfSpaces = fillCostOfSpaces(countSeats, seatCost);
+        this.cinemaId = cinemaId;
     }
 
     public ArrayList<Integer> fillCostOfSpaces(int countSeats, int seatCost) {
