@@ -5,14 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="806752c8-5ca7-402d-9715-f8a979d5db06" name="Changes" comment="add TODOs">
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/tables_basic/Film.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/util/DbFilm.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/util/impl/DbFilmImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/util/DbCinema.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/util/impl/DbCinemaImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/config/BasicDbConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/config/BasicDbConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/tables_basic/Movie.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/tables_basic/Film.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/tables_basic/Film.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/tables_basic/Hall.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/tables_complex/Hall.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/tables_complex/Cinema.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/tables_basic/Cinema.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/tables_complex/Session.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/tables_complex/Session.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/util/DbHall.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/util/DbHall.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/util/impl/DbFilmImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/util/impl/DbFilmImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/util/impl/DbHallImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/util/impl/DbHallImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -99,7 +102,8 @@
       <workItem from="1680538146340" duration="4449000" />
       <workItem from="1680544069581" duration="5865000" />
       <workItem from="1680592753801" duration="3362000" />
-      <workItem from="1680598375921" duration="388000" />
+      <workItem from="1680598375921" duration="1955000" />
+      <workItem from="1680611930979" duration="10396000" />
     </task>
     <task id="LOCAL-00001" summary="add TODOs">
       <created>1680545149059</created>
@@ -129,5 +133,21 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="add TODOs" />
     <option name="LAST_COMMIT_MESSAGE" value="add TODOs" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/util/impl/DbCinemaImpl.java</url>
+          <line>34</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/Main.java</url>
+          <line>31</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

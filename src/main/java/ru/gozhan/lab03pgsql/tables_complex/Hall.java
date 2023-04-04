@@ -1,4 +1,4 @@
-package ru.gozhan.lab03pgsql.tables_basic;
+package ru.gozhan.lab03pgsql.tables_complex;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -18,6 +18,8 @@ public class Hall {
     private MovieFormatEnum supportedFormat;
 
     private ArrayList<Integer> costOfSpaces;
+
+    private int cinemaId; //TODO rewrite with it
 
     public Hall(int id, MovieFormatEnum supportedFormat, int countSeats, int seatCost) {
         this.id = id;

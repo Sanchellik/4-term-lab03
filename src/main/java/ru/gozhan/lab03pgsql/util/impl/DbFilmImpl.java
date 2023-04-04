@@ -2,9 +2,7 @@ package ru.gozhan.lab03pgsql.util.impl;
 
 import ru.gozhan.lab03pgsql.config.ConnectToDbConfig;
 import ru.gozhan.lab03pgsql.constants.GenreEnum;
-import ru.gozhan.lab03pgsql.constants.MovieFormatEnum;
 import ru.gozhan.lab03pgsql.tables_basic.Film;
-import ru.gozhan.lab03pgsql.tables_basic.Hall;
 import ru.gozhan.lab03pgsql.util.DbFilm;
 
 import java.sql.*;

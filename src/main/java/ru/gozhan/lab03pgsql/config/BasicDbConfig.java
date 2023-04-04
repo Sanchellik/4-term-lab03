@@ -2,21 +2,22 @@ package ru.gozhan.lab03pgsql.config;
 
 import ru.gozhan.lab03pgsql.constants.GenreEnum;
 import ru.gozhan.lab03pgsql.constants.MovieFormatEnum;
+import ru.gozhan.lab03pgsql.tables_basic.Cinema;
 import ru.gozhan.lab03pgsql.tables_basic.Film;
-import ru.gozhan.lab03pgsql.tables_basic.Hall;
 import ru.gozhan.lab03pgsql.user.Admin;
 import ru.gozhan.lab03pgsql.user.Client;
 import ru.gozhan.lab03pgsql.util.DbAdmin;
+import ru.gozhan.lab03pgsql.util.DbCinema;
 import ru.gozhan.lab03pgsql.util.DbClient;
 import ru.gozhan.lab03pgsql.util.DbFilm;
-import ru.gozhan.lab03pgsql.util.DbHall;
 import ru.gozhan.lab03pgsql.util.impl.DbAdminImpl;
+import ru.gozhan.lab03pgsql.util.impl.DbCinemaImpl;
 import ru.gozhan.lab03pgsql.util.impl.DbClientImpl;
 import ru.gozhan.lab03pgsql.util.impl.DbFilmImpl;
-import ru.gozhan.lab03pgsql.util.impl.DbHallImpl;
 
 import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class BasicDbConfig {
 
@@ -37,9 +38,9 @@ public class BasicDbConfig {
     public static void fillAllDbs() {
         fillAdmins();
         fillClients();
-        fillHalls();
         fillFilms();
 //        fillCinemas(); //TODO add fillCinemas();
+//        fillHalls(); //TODO add fillHalls();
 //        fillSessions(); //TODO add fillSessions();
     }
 
@@ -59,14 +60,6 @@ public class BasicDbConfig {
         dbClient.insert(new Client("Podogov Vadim", "vadim", "123", 2000, 6));
     }
 
-    public static void fillHalls() {
-        DbHall dbHall = new DbHallImpl();
-
-        dbHall.insert(new Hall(MovieFormatEnum.FORMAT_2D, 20, 500));
-        dbHall.insert(new Hall(MovieFormatEnum.FORMAT_3D, 10, 750));
-        dbHall.insert(new Hall(MovieFormatEnum.FORMAT_4D, 5, 1750));
-    }
-
     public static void fillFilms() {
         DbFilm dbFilm = new DbFilmImpl();
 
@@ -74,5 +67,28 @@ public class BasicDbConfig {
         dbFilm.insert(new Film("SpiderMan 1", GenreEnum.ACTION, LocalTime.of(2, 15)));
         dbFilm.insert(new Film("It", GenreEnum.HORROR, LocalTime.of(1, 50)));
     }
+
+    public static void fillCinemas() { //TODO this before halls
+        DbCinema dbCinema = new DbCinemaImpl();
+
+        dbCinema.insert(new Cinema("KinoMax", "Krasnodar",
+                new ArrayList<>(Arrays.asList(
+                        MovieFormatEnum.FORMAT_2D,
+                        MovieFormatEnum.FORMAT_3D,
+                        MovieFormatEnum.FORMAT_4D))));
+        dbCinema.insert(new Cinema("Galaxy", "Krasnodar",
+                new ArrayList<>(Arrays.asList(
+                        MovieFormatEnum.FORMAT_2D,
+                        MovieFormatEnum.FORMAT_3D,
+                        MovieFormatEnum.FORMAT_4D))));
+    }
+
+//    public static void fillHalls() { //TODO rewrite this with cinema_id
+//        DbHall dbHall = new DbHallImpl();
+//
+//        dbHall.insert(new Hall(MovieFormatEnum.FORMAT_2D, 20, 500));
+//        dbHall.insert(new Hall(MovieFormatEnum.FORMAT_3D, 10, 750));
+//        dbHall.insert(new Hall(MovieFormatEnum.FORMAT_4D, 5, 1750));
+//    }
 
 }

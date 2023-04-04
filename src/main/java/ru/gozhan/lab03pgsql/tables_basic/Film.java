@@ -26,35 +26,4 @@ public class Film {
         this.duration = duration;
     }
 
-//    public ArrayList<Movie> createBasicMovies() {
-//
-//        ArrayList<Movie> movies = new ArrayList<>();
-//
-//        movies.add(
-//                new Movie(
-//                        "Interstellar",
-//                        LocalTime.of(3, 5),
-//                        GenreEnum.ROMANCE
-//                )
-//        );
-//
-//        movies.add(
-//                new Movie(
-//                        "SpiderMan 1",
-//                        LocalTime.of(2, 15),
-//                        GenreEnum.ACTION
-//                )
-//        );
-//
-//        movies.add(
-//                new Movie(
-//                        "It",
-//                        LocalTime.of(1, 50),
-//                        GenreEnum.HORROR
-//                )
-//        );
-//
-//        return movies;
-//    }
-
 }

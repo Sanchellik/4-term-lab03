@@ -3,11 +3,10 @@ package ru.gozhan.lab03pgsql.tables_complex;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import ru.gozhan.lab03pgsql.tables_basic.Cinema;
 import ru.gozhan.lab03pgsql.tables_basic.Film;
-import ru.gozhan.lab03pgsql.tables_basic.Hall;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 
 @Data
 @NoArgsConstructor
