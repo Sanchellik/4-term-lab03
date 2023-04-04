@@ -1,16 +1,21 @@
 package ru.gozhan.lab03pgsql.config;
 
+import ru.gozhan.lab03pgsql.constants.GenreEnum;
 import ru.gozhan.lab03pgsql.constants.MovieFormatEnum;
+import ru.gozhan.lab03pgsql.tables_basic.Film;
 import ru.gozhan.lab03pgsql.tables_basic.Hall;
 import ru.gozhan.lab03pgsql.user.Admin;
 import ru.gozhan.lab03pgsql.user.Client;
 import ru.gozhan.lab03pgsql.util.DbAdmin;
 import ru.gozhan.lab03pgsql.util.DbClient;
+import ru.gozhan.lab03pgsql.util.DbFilm;
 import ru.gozhan.lab03pgsql.util.DbHall;
 import ru.gozhan.lab03pgsql.util.impl.DbAdminImpl;
 import ru.gozhan.lab03pgsql.util.impl.DbClientImpl;
+import ru.gozhan.lab03pgsql.util.impl.DbFilmImpl;
 import ru.gozhan.lab03pgsql.util.impl.DbHallImpl;
 
+import java.time.LocalTime;
 import java.util.ArrayList;
 
 public class BasicDbConfig {
@@ -32,9 +37,9 @@ public class BasicDbConfig {
     public static void fillAllDbs() {
         fillAdmins();
         fillClients();
-        fillHalls(); //TODO add fillHalls();
+        fillHalls();
+        fillFilms();
 //        fillCinemas(); //TODO add fillCinemas();
-//        fillMovies(); //TODO add fillMovies();
 //        fillSessions(); //TODO add fillSessions();
     }
 
@@ -60,6 +65,14 @@ public class BasicDbConfig {
         dbHall.insert(new Hall(MovieFormatEnum.FORMAT_2D, 20, 500));
         dbHall.insert(new Hall(MovieFormatEnum.FORMAT_3D, 10, 750));
         dbHall.insert(new Hall(MovieFormatEnum.FORMAT_4D, 5, 1750));
+    }
+
+    public static void fillFilms() {
+        DbFilm dbFilm = new DbFilmImpl();
+
+        dbFilm.insert(new Film("Interstellar", GenreEnum.ROMANCE, LocalTime.of(3, 10)));
+        dbFilm.insert(new Film("SpiderMan 1", GenreEnum.ACTION, LocalTime.of(2, 15)));
+        dbFilm.insert(new Film("It", GenreEnum.HORROR, LocalTime.of(1, 50)));
     }
 
 }

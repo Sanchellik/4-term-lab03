@@ -1,22 +1,22 @@
 package ru.gozhan.lab03pgsql.util.impl;
 
 import ru.gozhan.lab03pgsql.config.ConnectToDbConfig;
+import ru.gozhan.lab03pgsql.constants.GenreEnum;
 import ru.gozhan.lab03pgsql.constants.MovieFormatEnum;
+import ru.gozhan.lab03pgsql.tables_basic.Film;
 import ru.gozhan.lab03pgsql.tables_basic.Hall;
-import ru.gozhan.lab03pgsql.util.DbHall;
+import ru.gozhan.lab03pgsql.util.DbFilm;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
+import java.time.LocalTime;
 import java.util.ArrayList;
 
-public class DbHallImpl implements DbHall {
+public class DbFilmImpl implements DbFilm {
 
     @Override
-    public ArrayList<Hall> getAll() {
+    public ArrayList<Film> getAll() {
 
-        ArrayList<Hall> halls = new ArrayList<>();
+        ArrayList<Film> films = new ArrayList<>();
 
         try (Connection conn = ConnectToDbConfig.getConnection();
              PreparedStatement preparedStatement = conn.prepareStatement(SQL_SELECT_ALL)) {
@@ -27,19 +27,19 @@ public class DbHallImpl implements DbHall {
 
                 int id = resultSet.getInt("id");
 
-                MovieFormatEnum supportedFormat = MovieFormatEnum
-                        .valueOf(resultSet.getString("hall_format"));
+                String title = resultSet.getString("film_title");
 
-                int countSeats = resultSet.getInt("hall_count_seats");
-                int seatCost = resultSet.getInt("hall_seat_cost");
+                GenreEnum genre = GenreEnum
+                        .valueOf(resultSet.getString("film_genre"));
 
-                Hall hall = new Hall(id, supportedFormat, countSeats, seatCost);
+                LocalTime duration = resultSet.getTime("film_duration").toLocalTime();
 
-                halls.add(hall);
+                Film film = new Film(id, title, genre, duration);
+                films.add(film);
 
             }
 
-            return halls;
+            return films;
 
         } catch (SQLException e) {
             System.err.format("SQL State: %s\n%s", e.getSQLState(), e.getMessage());
@@ -51,14 +51,14 @@ public class DbHallImpl implements DbHall {
     }
 
     @Override
-    public void insert(Hall hall) {
+    public void insert(Film film) {
         try (Connection conn = ConnectToDbConfig.getConnection();
              PreparedStatement preparedStatement = conn.prepareStatement(SQL_INSERT)) {
 
-            preparedStatement.setString(1,hall.getSupportedFormat().toString());
+            preparedStatement.setString(1, film.getTitle());
 
-            preparedStatement.setInt(2, hall.getCostOfSpaces().size());
-            preparedStatement.setInt(3, hall.getCostOfSpaces().get(0));
+            preparedStatement.setString(2, film.getGenre().toString());
+            preparedStatement.setTime(3, Time.valueOf(film.getDuration()));
 
             int row = preparedStatement.executeUpdate();
 
