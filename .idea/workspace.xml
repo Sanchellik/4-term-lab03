@@ -4,15 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="806752c8-5ca7-402d-9715-f8a979d5db06" name="Changes" comment="add TODOs">
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/util/DbSession.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/util/impl/DbSessionImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/config/BasicDbConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/config/BasicDbConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/tables_complex/Hall.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/tables_complex/Hall.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/tables_complex/Session.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/tables_complex/Session.java" afterDir="false" />
-    </list>
+    <list default="true" id="806752c8-5ca7-402d-9715-f8a979d5db06" name="Changes" comment="add TODOs" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -102,7 +94,7 @@
       <workItem from="1680592753801" duration="3362000" />
       <workItem from="1680598375921" duration="1955000" />
       <workItem from="1680611930979" duration="19345000" />
-      <workItem from="1680716348903" duration="2311000" />
+      <workItem from="1680716348903" duration="2641000" />
     </task>
     <task id="LOCAL-00001" summary="add TODOs">
       <created>1680545149059</created>
