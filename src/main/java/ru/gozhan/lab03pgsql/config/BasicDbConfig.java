@@ -5,12 +5,15 @@ import ru.gozhan.lab03pgsql.constants.MovieFormatEnum;
 import ru.gozhan.lab03pgsql.tables_basic.Cinema;
 import ru.gozhan.lab03pgsql.tables_basic.Film;
 import ru.gozhan.lab03pgsql.tables_complex.Hall;
+import ru.gozhan.lab03pgsql.tables_complex.Session;
 import ru.gozhan.lab03pgsql.user.Admin;
 import ru.gozhan.lab03pgsql.user.Client;
 import ru.gozhan.lab03pgsql.util.*;
 import ru.gozhan.lab03pgsql.util.impl.*;
 
+import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -35,8 +38,8 @@ public class BasicDbConfig {
         fillClients();
         fillFilms();
         fillCinemas();
-//        fillHalls(); //TODO add fillHalls();
-//        fillSessions(); //TODO add fillSessions();
+        fillHalls();
+        fillSessions();
     }
 
     public static void fillAdmins() {
@@ -78,7 +81,7 @@ public class BasicDbConfig {
                         MovieFormatEnum.FORMAT_4D))));
     }
 
-    public static void fillHalls() { //TODO rewrite this with cinema_id
+    public static void fillHalls() {
         DbHall dbHall = new DbHallImpl();
 
         dbHall.insert(new Hall(MovieFormatEnum.FORMAT_2D, 20, 500, 1));
@@ -89,6 +92,18 @@ public class BasicDbConfig {
 
         dbHall.insert(new Hall(MovieFormatEnum.FORMAT_4D, 5, 1500, 1));
         dbHall.insert(new Hall(MovieFormatEnum.FORMAT_4D, 2, 2500, 2));
+    }
+
+    public static void fillSessions() {
+        DbSession dbSession = new DbSessionImpl();
+
+        String localDateTimePattern = "dd-MM-yyyy HH:mm";
+        dbSession.insert(new Session(1, 1, LocalDateTime.parse(
+                "08-05-2023 20:30", DateTimeFormatter.ofPattern(localDateTimePattern))));
+
+        dbSession.insert(new Session(1, 4, LocalDateTime.parse(
+                "09-05-2023 21:45", DateTimeFormatter.ofPattern(localDateTimePattern))));
+
     }
 
 }

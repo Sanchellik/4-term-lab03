@@ -3,42 +3,26 @@ package ru.gozhan.lab03pgsql.tables_complex;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import ru.gozhan.lab03pgsql.tables_basic.Cinema;
-import ru.gozhan.lab03pgsql.tables_basic.Film;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class Session {
 
-    private Cinema cinema;
+    private int id;
 
-    private Film film;
+    private int filmId;
 
-    private Hall hall;
+    private int hallId;
 
-    private LocalDate date;
+    private LocalDateTime dateTime;
 
-    private final String path = "src/main/resources/sessions.json";
-
-
-//    public ArrayList<Session> createBasicSessions() {
-//
-//        ArrayList<Movie> movies = new Movie().createBasicMovies();
-//
-//        ArrayList<Session> sessions = new ArrayList<>();
-//
-//        sessions.add(
-//                new Session(
-//
-//                )
-//        );
-//
-//
-//
-//        return sessions;
-//    }
+    public Session(int filmId, int hallId, LocalDateTime dateTime) {
+        this.filmId = filmId;
+        this.hallId = hallId;
+        this.dateTime = dateTime;
+    }
 
 }

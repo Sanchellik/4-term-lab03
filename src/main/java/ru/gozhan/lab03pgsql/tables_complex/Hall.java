@@ -19,7 +19,7 @@ public class Hall {
 
     private ArrayList<Integer> costOfSpaces;
 
-    private int cinemaId; //TODO rewrite with it
+    private int cinemaId;
 
     public Hall(int id, MovieFormatEnum supportedFormat, int countSeats, int seatCost, int cinemaId) {
         this.id = id;
