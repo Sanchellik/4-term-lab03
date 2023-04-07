@@ -1,6 +1,6 @@
 package ru.gozhan.lab03pgsql.util;
 
-import ru.gozhan.lab03pgsql.tables_complex.Hall;
+import ru.gozhan.lab03pgsql.table.Hall;
 
 import java.util.ArrayList;
 

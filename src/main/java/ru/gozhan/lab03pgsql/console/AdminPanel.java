@@ -1,6 +1,7 @@
 package ru.gozhan.lab03pgsql.console;
 
 import ru.gozhan.lab03pgsql.user.Admin;
+import ru.gozhan.lab03pgsql.util.DbAdmin;
 import ru.gozhan.lab03pgsql.util.impl.DbAdminImpl;
 
 import java.util.ArrayList;
@@ -9,9 +10,11 @@ import java.util.Scanner;
 
 public class AdminPanel {
 
+    private static final DbAdmin dbAdmin = new DbAdminImpl();
+
     public static void authentication() {
 
-        ArrayList<Admin> admins = new DbAdminImpl().getAll();
+        ArrayList<Admin> admins = dbAdmin.getAll();
 
         System.out.print("\nEnter your email: ");
         try (Scanner scanner = new Scanner(System.in)) {

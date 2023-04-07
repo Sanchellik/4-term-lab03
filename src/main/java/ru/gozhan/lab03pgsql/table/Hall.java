@@ -1,4 +1,4 @@
-package ru.gozhan.lab03pgsql.tables_complex;
+package ru.gozhan.lab03pgsql.table;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

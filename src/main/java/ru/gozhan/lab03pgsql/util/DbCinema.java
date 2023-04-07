@@ -1,6 +1,6 @@
 package ru.gozhan.lab03pgsql.util;
 
-import ru.gozhan.lab03pgsql.tables_basic.Cinema;
+import ru.gozhan.lab03pgsql.table.Cinema;
 
 import java.util.ArrayList;
 

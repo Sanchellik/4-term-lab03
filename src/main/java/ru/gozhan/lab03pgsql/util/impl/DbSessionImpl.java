@@ -1,7 +1,7 @@
 package ru.gozhan.lab03pgsql.util.impl;
 
 import ru.gozhan.lab03pgsql.config.ConnectToDbConfig;
-import ru.gozhan.lab03pgsql.tables_complex.Session;
+import ru.gozhan.lab03pgsql.table.Session;
 import ru.gozhan.lab03pgsql.util.DbSession;
 
 import java.sql.*;

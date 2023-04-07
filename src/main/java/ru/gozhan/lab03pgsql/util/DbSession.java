@@ -1,6 +1,6 @@
 package ru.gozhan.lab03pgsql.util;
 
-import ru.gozhan.lab03pgsql.tables_complex.Session;
+import ru.gozhan.lab03pgsql.table.Session;
 
 import java.util.ArrayList;
 

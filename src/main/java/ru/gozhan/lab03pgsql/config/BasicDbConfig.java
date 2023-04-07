@@ -2,38 +2,61 @@ package ru.gozhan.lab03pgsql.config;
 
 import ru.gozhan.lab03pgsql.constants.GenreEnum;
 import ru.gozhan.lab03pgsql.constants.MovieFormatEnum;
-import ru.gozhan.lab03pgsql.tables_basic.Cinema;
-import ru.gozhan.lab03pgsql.tables_basic.Film;
-import ru.gozhan.lab03pgsql.tables_complex.Hall;
-import ru.gozhan.lab03pgsql.tables_complex.Session;
+import ru.gozhan.lab03pgsql.table.Cinema;
+import ru.gozhan.lab03pgsql.table.Film;
+import ru.gozhan.lab03pgsql.table.Hall;
+import ru.gozhan.lab03pgsql.table.Session;
 import ru.gozhan.lab03pgsql.user.Admin;
 import ru.gozhan.lab03pgsql.user.Client;
 import ru.gozhan.lab03pgsql.util.*;
 import ru.gozhan.lab03pgsql.util.impl.*;
 
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Objects;
 
 public class BasicDbConfig {
 
-    public static boolean checkBasicDbFilling() {
-        DbAdmin dbAdmin = new DbAdminImpl();
-        if (dbAdmin.getAll() == null) {
-            return false;
-        }
+    private static final DbAdmin dbAdmin = new DbAdminImpl();
+    private static final DbClient dbClient = new DbClientImpl();
+    private static final DbCinema dbCinema = new DbCinemaImpl();
+    private static final DbHall dbHall = new DbHallImpl();
+    private static final DbFilm dbFilm = new DbFilmImpl();
+    private static final DbSession dbSession = new DbSessionImpl();
 
-        DbClient dbClient = new DbClientImpl();
-        if (dbClient.getAll() == null) {
-            return false;
-        }
+    public static boolean checkBasicDbFilling() {
+        if (Objects.equals(dbAdmin.getAll(), new ArrayList<>())) return false;
+
+        if (Objects.equals(dbClient.getAll(), new ArrayList<>())) return false;
+
+        if (Objects.equals(dbCinema.getAll(), new ArrayList<>())) return false;
+
+        if (Objects.equals(dbHall.getAll(), new ArrayList<>())) return false;
+
+        if (Objects.equals(dbFilm.getAll(), new ArrayList<>())) return false;
+
+        if (Objects.equals(dbSession.getAll(), new ArrayList<>())) return false;
 
         return true;
     }
 
+    public static void truncateAllDbs() {
+        try (Connection conn = ConnectToDbConfig.getConnection();
+             Statement statement = conn.createStatement()) {
+            int result = statement.executeUpdate("TRUNCATE admins, cinemas, clients, films, halls, orders, sessions RESTART IDENTITY;");
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     public static void fillAllDbs() {
+        truncateAllDbs();
         fillAdmins();
         fillClients();
         fillFilms();
@@ -43,14 +66,10 @@ public class BasicDbConfig {
     }
 
     public static void fillAdmins() {
-        DbAdmin dbAdmin = new DbAdminImpl();
-
         dbAdmin.insert(new Admin("admin", "admin"));
     }
 
     public static void fillClients() {
-        DbClient dbClient = new DbClientImpl();
-
         dbClient.insert(new Client("Gozhan Alexandr", "sasha", "123", 300, 0));
         dbClient.insert(new Client("Butskovsky Kirill", "kirill", "123", 1_000_000, 10));
         dbClient.insert(new Client("Ryabov Nikita", "nikita", "123", 7000, 3));
@@ -59,16 +78,12 @@ public class BasicDbConfig {
     }
 
     public static void fillFilms() {
-        DbFilm dbFilm = new DbFilmImpl();
-
         dbFilm.insert(new Film("Interstellar", GenreEnum.ROMANCE, LocalTime.of(3, 10)));
         dbFilm.insert(new Film("SpiderMan 1", GenreEnum.ACTION, LocalTime.of(2, 15)));
         dbFilm.insert(new Film("It", GenreEnum.HORROR, LocalTime.of(1, 50)));
     }
 
     public static void fillCinemas() {
-        DbCinema dbCinema = new DbCinemaImpl();
-
         dbCinema.insert(new Cinema("KinoMax", "Krasnodar",
                 new ArrayList<>(Arrays.asList(
                         MovieFormatEnum.FORMAT_2D,
@@ -82,8 +97,6 @@ public class BasicDbConfig {
     }
 
     public static void fillHalls() {
-        DbHall dbHall = new DbHallImpl();
-
         dbHall.insert(new Hall(MovieFormatEnum.FORMAT_2D, 20, 500, 1));
         dbHall.insert(new Hall(MovieFormatEnum.FORMAT_2D, 25, 450, 2));
 
@@ -95,8 +108,6 @@ public class BasicDbConfig {
     }
 
     public static void fillSessions() {
-        DbSession dbSession = new DbSessionImpl();
-
         String localDateTimePattern = "dd-MM-yyyy HH:mm";
         dbSession.insert(new Session(1, 1, LocalDateTime.parse(
                 "08-05-2023 20:30", DateTimeFormatter.ofPattern(localDateTimePattern))));

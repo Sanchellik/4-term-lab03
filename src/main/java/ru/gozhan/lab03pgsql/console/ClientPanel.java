@@ -1,6 +1,7 @@
 package ru.gozhan.lab03pgsql.console;
 
 import ru.gozhan.lab03pgsql.user.Client;
+import ru.gozhan.lab03pgsql.util.DbClient;
 import ru.gozhan.lab03pgsql.util.impl.DbClientImpl;
 
 import java.util.ArrayList;
@@ -9,9 +10,11 @@ import java.util.Scanner;
 
 public class ClientPanel {
 
+    private static final DbClient dbClient = new DbClientImpl();
+
     public static void authentication() {
 
-        ArrayList<Client> clients = new DbClientImpl().getAll();
+        ArrayList<Client> clients = dbClient.getAll();
 
         System.out.print("\nEnter your email: ");
         try (Scanner scanner = new Scanner(System.in)) {
@@ -55,12 +58,35 @@ public class ClientPanel {
                     System.out.println("\nWe can offer such sessions");
 
                 }
+
+                case 4 -> {
+                    CommonMenu.whatWeWillDo();
+                }
             }
         }
     }
 
     public static void registration() {
+        System.out.println("\nWelcome to registration");
+        Scanner scanner = new Scanner(System.in);
 
+        System.out.print("Enter name: ");
+        String name = scanner.nextLine();
+
+        System.out.print("Enter email: ");
+        String email = scanner.nextLine();
+
+        System.out.print("Enter password: ");
+        String password = scanner.nextLine();
+
+        System.out.print("How much money do you have: ");
+        int budget = scanner.nextInt();
+
+        Client client = new Client(name, email, password, budget, 0);
+        dbClient.insert(client);
+
+        System.out.println("\nSuccessful registration. Welcome!");
+        chooseWhatWant(client);
     }
 
 }
