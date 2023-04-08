@@ -5,28 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="806752c8-5ca7-402d-9715-f8a979d5db06" name="Changes" comment="add TODOs">
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/util/DbOrders.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/view/FullSessionInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dbnavigator.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/service/impl/SessionServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/util/DbComplex.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/view/SessionView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/config/BasicDbConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/config/BasicDbConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/config/ConnectToDbConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/config/ConnectToDbConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/console/AdminPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/console/AdminPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/console/ClientPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/console/ClientPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/console/CommonMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/console/CommonMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/tables_basic/Cinema.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/table/Cinema.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/tables_basic/Film.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/table/Film.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/tables_complex/Hall.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/table/Hall.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/tables_complex/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/table/Order.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/tables_complex/Session.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/table/Session.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/util/DbCinema.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/util/DbCinema.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/util/DbFilm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/util/DbFilm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/util/DbHall.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/util/DbHall.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/util/DbSession.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/util/DbSession.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/util/impl/DbCinemaImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/util/impl/DbCinemaImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/util/impl/DbFilmImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/util/impl/DbFilmImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/util/impl/DbHallImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/util/impl/DbHallImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/util/impl/DbSessionImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/util/impl/DbSessionImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/user/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/user/Admin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/util/impl/DbAdminImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/util/impl/DbAdminImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/view/FullSessionInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/service/SessionService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,6 +71,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="ru.gozhan.lab03pgsql.service.impl" />
       <recent name="ru.gozhan.lab03pgsql.util.impl" />
     </key>
   </component>
@@ -124,7 +110,10 @@
       <workItem from="1680766269801" duration="1393000" />
       <workItem from="1680793658195" duration="38000" />
       <workItem from="1680806053509" duration="5001000" />
-      <workItem from="1680873147916" duration="1292000" />
+      <workItem from="1680873147916" duration="2608000" />
+      <workItem from="1680877726569" duration="1369000" />
+      <workItem from="1680956189592" duration="716000" />
+      <workItem from="1680957023608" duration="2684000" />
     </task>
     <task id="LOCAL-00001" summary="add TODOs">
       <created>1680545149059</created>
@@ -162,11 +151,6 @@
           <url>file://$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/util/impl/DbCinemaImpl.java</url>
           <line>34</line>
           <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/Main.java</url>
-          <line>9</line>
-          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -21,7 +21,7 @@ public class DbAdminImpl implements DbAdmin {
 
             while (resultSet.next()) {
 
-                Integer id = resultSet.getInt("id");
+                int id = resultSet.getInt("id");
                 String email = resultSet.getString("admin_email");
                 String password = resultSet.getString("admin_password");
 
