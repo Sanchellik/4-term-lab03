@@ -17,25 +17,32 @@ public class Hall {
 
     private MovieFormatEnum supportedFormat;
 
-    private ArrayList<Integer> costOfSpaces;
+//    private ArrayList<Integer> costOfSpaces;
+    private int countSeats;
 
     private int cinemaId;
 
-    public Hall(int id, MovieFormatEnum supportedFormat, int countSeats, int seatCost, int cinemaId) {
-        this.id = id;
+    public Hall(MovieFormatEnum supportedFormat, int countSeats, int cinemaId) {
         this.supportedFormat = supportedFormat;
-        this.costOfSpaces = fillCostOfSpaces(countSeats, seatCost);
+        this.countSeats = countSeats;
         this.cinemaId = cinemaId;
     }
 
-    public Hall(MovieFormatEnum supportedFormat, int countSeats, int seatCost, int cinemaId) {
-        this.supportedFormat = supportedFormat;
-        this.costOfSpaces = fillCostOfSpaces(countSeats, seatCost);
-        this.cinemaId = cinemaId;
-    }
-
-    public ArrayList<Integer> fillCostOfSpaces(int countSeats, int seatCost) {
-
-        return new ArrayList<>(Collections.nCopies(countSeats, seatCost));
-    }
+    //    public Hall(int id, MovieFormatEnum supportedFormat, int countSeats, int seatCost, int cinemaId) {
+//        this.id = id;
+//        this.supportedFormat = supportedFormat;
+//        this.costOfSpaces = fillCostOfSpaces(countSeats, seatCost);
+//        this.cinemaId = cinemaId;
+//    }
+//
+//    public Hall(MovieFormatEnum supportedFormat, int countSeats, int seatCost, int cinemaId) {
+//        this.supportedFormat = supportedFormat;
+//        this.costOfSpaces = fillCostOfSpaces(countSeats, seatCost);
+//        this.cinemaId = cinemaId;
+//    }
+//
+//    public ArrayList<Integer> fillCostOfSpaces(int countSeats, int seatCost) {
+//
+//        return new ArrayList<>(Collections.nCopies(countSeats, seatCost));
+//    }
 }

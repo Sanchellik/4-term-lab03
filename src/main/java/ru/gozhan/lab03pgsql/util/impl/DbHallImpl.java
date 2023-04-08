@@ -31,10 +31,10 @@ public class DbHallImpl implements DbHall {
                         .valueOf(resultSet.getString("hall_format"));
 
                 int countSeats = resultSet.getInt("hall_count_seats");
-                int seatCost = resultSet.getInt("hall_seat_cost");
+//                int seatCost = resultSet.getInt("hall_seat_cost");
                 int cinemaId = resultSet.getInt("cinema_id");
 
-                Hall hall = new Hall(id, supportedFormat, countSeats, seatCost, cinemaId);
+                Hall hall = new Hall(id, supportedFormat, countSeats, cinemaId);
 
                 halls.add(hall);
 
@@ -58,9 +58,8 @@ public class DbHallImpl implements DbHall {
 
             preparedStatement.setString(1, hall.getSupportedFormat().toString());
 
-            preparedStatement.setInt(2, hall.getCostOfSpaces().size());
-            preparedStatement.setInt(3, hall.getCostOfSpaces().get(0));
-            preparedStatement.setInt(4, hall.getCinemaId());
+            preparedStatement.setInt(2, hall.getCountSeats());
+            preparedStatement.setInt(3, hall.getCinemaId());
 
             int row = preparedStatement.executeUpdate();
 

@@ -7,8 +7,8 @@ import java.util.ArrayList;
 public interface DbHall {
 
     String SQL_SELECT_ALL = "SELECT * FROM halls";
-    String SQL_INSERT = "INSERT INTO halls (hall_format, hall_count_seats, hall_seat_cost, cinema_id) VALUES " +
-            "(?::movie_format_enum, ?, ?, ?)";
+    String SQL_INSERT = "INSERT INTO halls (hall_format, hall_count_seats, cinema_id) VALUES " +
+            "(?::movie_format_enum, ?, ?)";
 
     ArrayList<Hall> getAll();
     void insert(Hall hall);

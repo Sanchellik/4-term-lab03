@@ -97,14 +97,14 @@ public class BasicDbConfig {
     }
 
     public static void fillHalls() {
-        dbHall.insert(new Hall(MovieFormatEnum.FORMAT_2D, 20, 500, 1));
-        dbHall.insert(new Hall(MovieFormatEnum.FORMAT_2D, 25, 450, 2));
+        dbHall.insert(new Hall(MovieFormatEnum.FORMAT_2D, 20, 1));
+        dbHall.insert(new Hall(MovieFormatEnum.FORMAT_2D, 25, 2));
 
-        dbHall.insert(new Hall(MovieFormatEnum.FORMAT_3D, 15, 750, 1));
-        dbHall.insert(new Hall(MovieFormatEnum.FORMAT_3D, 10, 1000, 2));
+        dbHall.insert(new Hall(MovieFormatEnum.FORMAT_3D, 15, 1));
+        dbHall.insert(new Hall(MovieFormatEnum.FORMAT_3D, 10, 2));
 
-        dbHall.insert(new Hall(MovieFormatEnum.FORMAT_4D, 5, 1500, 1));
-        dbHall.insert(new Hall(MovieFormatEnum.FORMAT_4D, 2, 2500, 2));
+        dbHall.insert(new Hall(MovieFormatEnum.FORMAT_4D, 5, 1));
+        dbHall.insert(new Hall(MovieFormatEnum.FORMAT_4D, 2, 2));
     }
 
     public static void fillSessions() {
