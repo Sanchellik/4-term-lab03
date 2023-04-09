@@ -28,7 +28,9 @@ public class DbSessionImpl implements DbSession {
 
                 LocalDateTime dateTime = resultSet.getTimestamp("session_date_time").toLocalDateTime();
 
-                Session session = new Session(id, filmId, hallId, dateTime);
+                int seatCost = resultSet.getInt("session_seat_cost");
+
+                Session session = new Session(id, filmId, hallId, dateTime, seatCost);
 
                 sessions.add(session);
 
@@ -54,6 +56,8 @@ public class DbSessionImpl implements DbSession {
             preparedStatement.setInt(2, session.getHallId());
 
             preparedStatement.setTimestamp(3, Timestamp.valueOf(session.getDateTime()));
+
+            preparedStatement.setInt(4, session.getSeatCost());
 
             int row = preparedStatement.executeUpdate();
 

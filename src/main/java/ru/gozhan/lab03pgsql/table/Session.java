@@ -19,10 +19,13 @@ public class Session {
 
     private LocalDateTime dateTime;
 
-    public Session(int filmId, int hallId, LocalDateTime dateTime) {
+    private int seatCost;
+
+    public Session(int filmId, int hallId, LocalDateTime dateTime, int seatCost) {
         this.filmId = filmId;
         this.hallId = hallId;
         this.dateTime = dateTime;
+        this.seatCost = seatCost;
     }
 
 }

@@ -109,11 +109,13 @@ public class BasicDbConfig {
 
     public static void fillSessions() {
         String localDateTimePattern = "dd-MM-yyyy HH:mm";
-        dbSession.insert(new Session(1, 1, LocalDateTime.parse(
-                "08-05-2023 20:30", DateTimeFormatter.ofPattern(localDateTimePattern))));
+        dbSession.insert(new Session(1, 1,
+                LocalDateTime.parse("08-05-2023 20:30", DateTimeFormatter.ofPattern(localDateTimePattern)),
+                500));
 
-        dbSession.insert(new Session(1, 4, LocalDateTime.parse(
-                "09-05-2023 21:45", DateTimeFormatter.ofPattern(localDateTimePattern))));
+        dbSession.insert(new Session(1, 4,
+                LocalDateTime.parse("09-05-2023 21:45", DateTimeFormatter.ofPattern(localDateTimePattern)),
+                1500));
 
     }
 
