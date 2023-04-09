@@ -1,12 +1,13 @@
 package ru.gozhan.lab03pgsql.view;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
-import ru.gozhan.lab03pgsql.table.Cinema;
-import ru.gozhan.lab03pgsql.table.Film;
-import ru.gozhan.lab03pgsql.table.Hall;
-import ru.gozhan.lab03pgsql.table.Session;
+import ru.gozhan.lab03pgsql.table.*;
+
+import java.util.ArrayList;
 
 @Data
+@AllArgsConstructor
 public class SessionView {
 
     private int id;
@@ -18,6 +19,8 @@ public class SessionView {
     private Film film;
 
     private Session session;
+
+    private ArrayList<Order> orders;
 
     public String toString() {
         return id + ") " + cinema.getName() + " " +
