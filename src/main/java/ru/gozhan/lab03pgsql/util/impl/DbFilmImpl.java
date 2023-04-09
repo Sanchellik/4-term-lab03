@@ -67,4 +67,40 @@ public class DbFilmImpl implements DbFilm {
         }
     }
 
+    @Override
+    public Film getById(int id) {
+
+        Film film = null;
+
+        try (Connection conn = ConnectToDbConfig.getConnection();
+             PreparedStatement preparedStatement = conn.prepareStatement(SQL_SELECT_BY_ID)) {
+
+            preparedStatement.setInt(1, id);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            if (resultSet.next()) {
+
+                String title = resultSet.getString("film_title");
+
+                GenreEnum genre = GenreEnum
+                        .valueOf(resultSet.getString("film_genre"));
+
+                LocalTime duration = resultSet.getTime("film_duration").toLocalTime();
+
+                film = new Film(id, title, genre, duration);
+
+            }
+
+            return film;
+
+        } catch (SQLException e) {
+            System.err.format("SQL State: %s\n%s", e.getSQLState(), e.getMessage());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
 }

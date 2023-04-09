@@ -22,9 +22,14 @@ public class SessionView {
 
     private ArrayList<Order> orders;
 
-    public String toString() {
+    public String basicInfo() {
         return id + ") " + cinema.getName() + " " +
                 film.getTitle() + " " + hall.getSupportedFormat() + " " + session.getDateTime();
+    }
+
+    public String hallScheme() {
+        //TODO write it
+        return "";
     }
 
 }

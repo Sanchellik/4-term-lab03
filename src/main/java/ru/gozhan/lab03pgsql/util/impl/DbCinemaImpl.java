@@ -82,4 +82,38 @@ public class DbCinemaImpl implements DbCinema {
         }
     }
 
+    @Override
+    public Cinema getById(int id) {
+
+        Cinema cinema = null;
+
+        try (Connection conn = ConnectToDbConfig.getConnection();
+             PreparedStatement preparedStatement = conn.prepareStatement(SQL_SELECT_BY_ID)) {
+
+            preparedStatement.setInt(1, id);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+
+                String name = resultSet.getString("cinema_name");
+                String address = resultSet.getString("cinema_address");
+
+                String stringOfFormats = (resultSet.getString("cinema_supported_formats"));
+
+                cinema = new Cinema(id, name, address, parseStringToFormatsEnum(stringOfFormats));
+
+            }
+
+            return cinema;
+
+        } catch (SQLException e) {
+            System.err.format("SQL State: %s\n%s", e.getSQLState(), e.getMessage());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
 }

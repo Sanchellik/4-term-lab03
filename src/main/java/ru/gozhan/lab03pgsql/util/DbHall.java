@@ -10,7 +10,11 @@ public interface DbHall {
     String SQL_INSERT = "INSERT INTO halls (hall_format, hall_count_seats, cinema_id) VALUES " +
             "(?::movie_format_enum, ?, ?)";
 
+    String SQL_SELECT_BY_ID = "SELECT * FROM halls WHERE id = ?";
+
     ArrayList<Hall> getAll();
     void insert(Hall hall);
+
+    Hall getById(int id);
 
 }

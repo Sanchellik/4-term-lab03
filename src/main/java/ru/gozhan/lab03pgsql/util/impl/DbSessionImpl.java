@@ -82,7 +82,7 @@ public class DbSessionImpl implements DbSession {
 
             if (resultSet.next()) {
 
-                int sessionId = resultSet.getInt("id");
+//                int sessionId = resultSet.getInt("id");
                 int filmId = resultSet.getInt("film_id");
                 int hallId = resultSet.getInt("hall_id");
 
