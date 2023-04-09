@@ -19,4 +19,9 @@ public class SessionView {
 
     private Session session;
 
+    public String toString() {
+        return id + ") " + cinema.getName() + " " +
+                film.getTitle() + " " + hall.getSupportedFormat() + " " + session.getDateTime();
+    }
+
 }
