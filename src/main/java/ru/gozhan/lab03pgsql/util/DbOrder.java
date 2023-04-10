@@ -4,7 +4,7 @@ import ru.gozhan.lab03pgsql.table.Order;
 
 import java.util.ArrayList;
 
-public interface DbOrders {
+public interface DbOrder {
 
     String SQL_SELECT_BY_CLIENT_ID = "SELECT * FROM orders WHERE client_id = ?";
     String SQL_SELECT_BY_SESSION_ID = "SELECT * FROM orders WHERE session_id = ?";

@@ -2,12 +2,12 @@ package ru.gozhan.lab03pgsql.util.impl;
 
 import ru.gozhan.lab03pgsql.config.ConnectToDbConfig;
 import ru.gozhan.lab03pgsql.table.Order;
-import ru.gozhan.lab03pgsql.util.DbOrders;
+import ru.gozhan.lab03pgsql.util.DbOrder;
 
 import java.sql.*;
 import java.util.ArrayList;
 
-public class DbOrdersImpl implements DbOrders {
+public class DbOrderImpl implements DbOrder {
 
     @Override
     public ArrayList<Order> getBySessionId(int id) {
