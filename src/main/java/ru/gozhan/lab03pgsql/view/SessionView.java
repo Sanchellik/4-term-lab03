@@ -34,31 +34,35 @@ public class SessionView {
 
     public void hallScheme(Client client) {
 
-        Set<Integer> bookedSeats = new HashSet<>();
-        for (Order order : orders) {
-            bookedSeats.add(order.getSeat());
-        }
+        for (int i = 1; i < hall.getCountSeats() + 1; ++i) {
 
-        for (int i = 0; i < hall.getCountSeats(); ++i) {
-
-//            if (!bookedSeats.contains(i)) {
-//                System.out.print("\u001B[32m" + "(" + (i + 1) + ") " + session.getSeatCost() * (1 - client.calculateDiscount()) + "  ");
-//            } else {
-//                System.out.print("\u001B[31m" + "(" + (i + 1) + ") " + session.getSeatCost() * (1 - client.calculateDiscount()) + "  ");
-//            }
-            if (!bookedSeats.contains(i)) {
-//                System.out.printf("\u001B[32m" + "(" + (i + 1) + ") " + session.getSeatCost() * (1 - client.calculateDiscount()) + "  ");
-                System.out.printf("\u001B[32m(%2d) %.0f  ", (i + 1), session.getSeatCost() * (1 - client.calculateDiscount()));
+            if (!isSeatPurchased(i)) {
+                System.out.printf("\u001B[32m(%2d) %.0f  \u001B[0m", (i), session.getSeatCost() * (1 - client.calculateDiscount()));
             } else {
-//                System.out.printf("\u001B[31m" + "(" + (i + 1) + ") " + session.getSeatCost() * (1 - client.calculateDiscount()) + "  ");
-                System.out.printf("\u001B[31m(%2d) %.0f  ", (i + 1), session.getSeatCost() * (1 - client.calculateDiscount()));
+                System.out.printf("\u001B[31m(%2d) %.0f  \u001B[0m", (i), session.getSeatCost() * (1 - client.calculateDiscount()));
             }
 
-            if (i % 5 == 4) {
+            if (i % 5 == 0) {
                 System.out.println("\u001B[0m");
             }
 
         }
+    }
+
+    public boolean isSeatPurchased(int seat) {
+        Set<Integer> bookedSeats = new HashSet<>();
+        for (Order order : orders) {
+            bookedSeats.add(order.getSeat());
+        }
+        return bookedSeats.contains(seat);
+    }
+
+    public int getPriceForClient(Client client) {
+        return (int) (session.getSeatCost() * (1 - client.calculateDiscount()));
+    }
+
+    public boolean doesClientHaveMoneyToBook(Client client) {
+        return client.getBudget() >= getPriceForClient(client);
     }
 
 }

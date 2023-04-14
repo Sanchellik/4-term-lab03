@@ -28,7 +28,7 @@ public class DbOrderImpl implements DbOrder {
                 int seat = resultSet.getInt("order_seat");
                 int price = resultSet.getInt("order_price");
 
-                Order order = new Order(clientId, sessionId, seat);
+                Order order = new Order(clientId, sessionId, seat, price);
                 orders.add(order);
             }
 

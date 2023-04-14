@@ -20,6 +20,11 @@ public class Client implements Discountable {
 
     private ClientStatusEnum status;
 
+    public void setNumberOfTrips(int numberOfTrips) {
+        this.numberOfTrips = numberOfTrips;
+        this.status = calculateStatus(numberOfTrips);
+    }
+
     public Client(String name, String email, String password, int budget, int numberOfTrips) {
         this.name = name;
         this.email = email;
@@ -62,7 +67,8 @@ public class Client implements Discountable {
     }
 
     public void printInfo() {
-        System.out.println("\nName = " + name + "\nEmail = " + email + "\nBudget = " + budget + "\nStatus = " + status +
+        System.out.println("\nName = " + name + "\nEmail = " + email + "\nBudget = " + budget +
+                "\nNumber of trips = " + numberOfTrips + "\nStatus = " + status +
                 "\nDiscount = " + calculateDiscount() * 100 + "%");
     }
 

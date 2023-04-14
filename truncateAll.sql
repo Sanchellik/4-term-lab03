@@ -1,1 +1,0 @@
-truncate admins, cinemas, clients, films, halls, orders, sessions restart identity

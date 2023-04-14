@@ -30,11 +30,6 @@ public class DbClientImpl implements DbClient {
                 int budget = resultSet.getInt("client_budget");
                 int numberOfTrips = resultSet.getInt("client_number_of_trips");
 
-//                String string_status = resultSet.getString("client_status");
-
-//                ClientStatusEnum status = ClientStatusEnum.valueOf(string_status);
-//                ClientStatusEnum status = resultSet.getObject("client_level", ClientStatusEnum.class);
-
                 Client client = new Client(id, name, email, password, budget, numberOfTrips);
 
                 clients.add(client);
@@ -62,9 +57,42 @@ public class DbClientImpl implements DbClient {
             preparedStatement.setString(3, client.getPassword());
             preparedStatement.setInt(4, client.getBudget());
             preparedStatement.setInt(5, client.getNumberOfTrips());
-//            preparedStatement.setString(6, String.valueOf(client.getStatus()));
 
-            int row = preparedStatement.executeUpdate();
+            preparedStatement.executeUpdate();
+
+        } catch (SQLException e) {
+            System.err.format("SQL State: %s\n%s", e.getSQLState(), e.getMessage());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void updateBudget(int id, int newBudget) {
+        try (Connection conn = ConnectToDbConfig.getConnection();
+             PreparedStatement preparedStatement = conn.prepareStatement(SQL_UPDATE_BUDGET_BY_ID)) {
+
+            preparedStatement.setInt(1, newBudget);
+            preparedStatement.setInt(2, id);
+
+            preparedStatement.executeUpdate();
+
+        } catch (SQLException e) {
+            System.err.format("SQL State: %s\n%s", e.getSQLState(), e.getMessage());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void updateNumberOfTrips(int id, int newNumberOfTrips) {
+        try (Connection conn = ConnectToDbConfig.getConnection();
+             PreparedStatement preparedStatement = conn.prepareStatement(SQL_UPDATE_NUMBER_OF_TRIPS_BY_ID)) {
+
+            preparedStatement.setInt(1, newNumberOfTrips);
+            preparedStatement.setInt(2, id);
+
+            preparedStatement.executeUpdate();
 
         } catch (SQLException e) {
             System.err.format("SQL State: %s\n%s", e.getSQLState(), e.getMessage());

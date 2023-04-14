@@ -1,10 +1,13 @@
 package ru.gozhan.lab03pgsql.console;
 
+import ru.gozhan.lab03pgsql.table.Order;
 import ru.gozhan.lab03pgsql.user.Client;
 import ru.gozhan.lab03pgsql.util.DbClient;
 import ru.gozhan.lab03pgsql.util.DbComplex;
+import ru.gozhan.lab03pgsql.util.DbOrder;
 import ru.gozhan.lab03pgsql.util.impl.DbClientImpl;
 import ru.gozhan.lab03pgsql.util.impl.DbComplexImpl;
+import ru.gozhan.lab03pgsql.util.impl.DbOrderImpl;
 import ru.gozhan.lab03pgsql.view.SessionView;
 
 import java.util.ArrayList;
@@ -15,6 +18,7 @@ public class ClientPanel {
 
     private static final DbClient dbClient = new DbClientImpl();
     private static final DbComplex dbComplex = new DbComplexImpl();
+    private static final DbOrder dbOrder = new DbOrderImpl();
 
     public static void authentication() {
 
@@ -36,15 +40,15 @@ public class ClientPanel {
                     chooseWhatWant(client);
                 }
             }
+            authentication();
         }
     }
 
     private static void chooseWhatWant(Client client) {
         System.out.println("\n1. Check profile");
-        System.out.println("2. Increase balance");
+        System.out.println("2. Change balance");
         System.out.println("3. Buy ticket");
         System.out.println("4. Logout");
-        System.out.println("5. Exit");
 
         try (Scanner scanner = new Scanner(System.in)) {
             int choice = scanner.nextInt();
@@ -56,7 +60,15 @@ public class ClientPanel {
                 }
 
                 case 2 -> {
-                    System.out.println("TODO"); //TODO replenishment of the balance;
+                    System.out.print("Enter your new budget: ");
+                    try (Scanner scanner1 = new Scanner(System.in)) {
+
+                        int newBudget = scanner1.nextInt();
+                        dbClient.updateBudget(client.getId(), newBudget);
+
+                        client.setBudget(newBudget);
+                        chooseWhatWant(client);
+                    }
                 }
 
                 case 3 -> {
@@ -95,23 +107,57 @@ public class ClientPanel {
 
     public static void bookSeat(Client client) {
         System.out.println("\nWe can offer such sessions");
+        System.out.println("0) Exit");
+
         ArrayList<SessionView> sessionViews = dbComplex.getAllSessionsInfo();
         sessionViews.forEach(System.out::println);
 
         try (Scanner scanner = new Scanner(System.in)) {
-            int choise = scanner.nextInt();
+            int sessionChoise = scanner.nextInt();
 
-            SessionView selectedSessionView = sessionViews.get(choise - 1);
+            if (sessionChoise == 0) {
+                chooseWhatWant(client);
+            }
+
+            SessionView selectedSessionView = sessionViews.get(sessionChoise - 1);
 
             System.out.println("\nDefault price: " + selectedSessionView.getSession().getSeatCost());
             selectedSessionView.hallScheme(client);
 
             System.out.println("Choose seat");
-//            choise = scanner.nextInt();
+            int seatChoise = scanner.nextInt();
 
-//            if (selectedSessionView.) {
-//
-//            }
+            if (selectedSessionView.isSeatPurchased(seatChoise)) {
+                System.out.println("\nThis seat purchased. Choose another");
+                bookSeat(client);
+            }
+
+            if (!selectedSessionView.doesClientHaveMoneyToBook(client)) {
+                System.out.println("\nYou don't have money to book");
+                bookSeat(client);
+            }
+
+            client.setBudget(client.getBudget() - selectedSessionView.getPriceForClient(client));
+            dbClient.updateBudget(
+                    client.getId(),
+                    client.getBudget() - selectedSessionView.getPriceForClient(client)
+            );
+
+            dbOrder.insert(new Order(
+                    client.getId(),
+                    selectedSessionView.getSession().getId(),
+                    seatChoise,
+                    selectedSessionView.getPriceForClient(client))
+            );
+
+            client.setNumberOfTrips(client.getNumberOfTrips() + 1);
+            dbClient.updateNumberOfTrips(
+                    client.getId(),
+                    client.getNumberOfTrips() + 1
+            );
+
+            System.out.println("\nSuccessful book");
+            chooseWhatWant(client);
 
         }
     }

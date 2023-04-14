@@ -70,7 +70,7 @@ public class BasicDbConfig {
     }
 
     public static void fillClients() {
-        dbClient.insert(new Client("Gozhan Alexandr", "sasha", "123", 300, 0));
+        dbClient.insert(new Client("Gozhan Alexandr", "sasha", "123", 300, 2));
         dbClient.insert(new Client("Butskovsky Kirill", "kirill", "123", 1_000_000, 10));
         dbClient.insert(new Client("Ryabov Nikita", "nikita", "123", 7000, 3));
         dbClient.insert(new Client("Mironov Danil", "danil", "123", 1000, 7));

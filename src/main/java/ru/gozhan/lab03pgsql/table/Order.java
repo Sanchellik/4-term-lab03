@@ -19,10 +19,11 @@ public class Order {
 
     private int price;
 
-    public Order(int clientId, int sessionId, int seat) {
+    public Order(int clientId, int sessionId, int seat, int price) {
         this.clientId = clientId;
         this.sessionId = sessionId;
         this.seat = seat;
+        this.price = price;
     }
 
 }
