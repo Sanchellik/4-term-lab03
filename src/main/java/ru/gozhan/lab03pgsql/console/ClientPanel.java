@@ -40,6 +40,7 @@ public class ClientPanel {
                     chooseWhatWant(client);
                 }
             }
+            System.out.println("\nIncorrect login or password");
             authentication();
         }
     }
