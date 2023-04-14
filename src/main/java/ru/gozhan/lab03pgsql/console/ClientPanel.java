@@ -2,7 +2,10 @@ package ru.gozhan.lab03pgsql.console;
 
 import ru.gozhan.lab03pgsql.user.Client;
 import ru.gozhan.lab03pgsql.util.DbClient;
+import ru.gozhan.lab03pgsql.util.DbComplex;
 import ru.gozhan.lab03pgsql.util.impl.DbClientImpl;
+import ru.gozhan.lab03pgsql.util.impl.DbComplexImpl;
+import ru.gozhan.lab03pgsql.view.SessionView;
 
 import java.util.ArrayList;
 import java.util.Objects;
@@ -11,6 +14,7 @@ import java.util.Scanner;
 public class ClientPanel {
 
     private static final DbClient dbClient = new DbClientImpl();
+    private static final DbComplex dbComplex = new DbComplexImpl();
 
     public static void authentication() {
 
@@ -36,27 +40,27 @@ public class ClientPanel {
     }
 
     private static void chooseWhatWant(Client client) {
-        System.out.println("1. Check profile");
+        System.out.println("\n1. Check profile");
         System.out.println("2. Increase balance");
         System.out.println("3. Buy ticket");
-        System.out.println("4. Exit");
+        System.out.println("4. Logout");
+        System.out.println("5. Exit");
 
         try (Scanner scanner = new Scanner(System.in)) {
             int choice = scanner.nextInt();
 
             switch (choice) {
                 case 1 -> {
-                    System.out.println("\nYour balance: " + client.getBudget());
+                    client.printInfo();
                     chooseWhatWant(client);
                 }
 
                 case 2 -> {
-                    System.out.println(); //TODO replenishment of the balance;
+                    System.out.println("TODO"); //TODO replenishment of the balance;
                 }
 
                 case 3 -> {
-                    System.out.println("\nWe can offer such sessions");
-
+                    bookSeat(client);
                 }
 
                 case 4 -> {
@@ -87,6 +91,29 @@ public class ClientPanel {
 
         System.out.println("\nSuccessful registration. Welcome!");
         chooseWhatWant(client);
+    }
+
+    public static void bookSeat(Client client) {
+        System.out.println("\nWe can offer such sessions");
+        ArrayList<SessionView> sessionViews = dbComplex.getAllSessionsInfo();
+        sessionViews.forEach(System.out::println);
+
+        try (Scanner scanner = new Scanner(System.in)) {
+            int choise = scanner.nextInt();
+
+            SessionView selectedSessionView = sessionViews.get(choise - 1);
+
+            System.out.println("\nDefault price: " + selectedSessionView.getSession().getSeatCost());
+            selectedSessionView.hallScheme(client);
+
+            System.out.println("Choose seat");
+//            choise = scanner.nextInt();
+
+//            if (selectedSessionView.) {
+//
+//            }
+
+        }
     }
 
 }

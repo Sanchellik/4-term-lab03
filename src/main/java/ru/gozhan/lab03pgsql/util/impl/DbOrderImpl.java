@@ -26,6 +26,7 @@ public class DbOrderImpl implements DbOrder {
                 int clientId = resultSet.getInt("client_id");
                 int sessionId = resultSet.getInt("session_id");
                 int seat = resultSet.getInt("order_seat");
+                int price = resultSet.getInt("order_price");
 
                 Order order = new Order(clientId, sessionId, seat);
                 orders.add(order);
@@ -49,8 +50,8 @@ public class DbOrderImpl implements DbOrder {
 
             preparedStatement.setInt(1, order.getSessionId());
             preparedStatement.setInt(2, order.getClientId());
-
             preparedStatement.setInt(3, order.getSeat());
+            preparedStatement.setInt(4, order.getPrice());
 
             int row = preparedStatement.executeUpdate();
 

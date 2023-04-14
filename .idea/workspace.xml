@@ -5,10 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="806752c8-5ca7-402d-9715-f8a979d5db06" name="Changes" comment="refactor sessions (added in)">
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/util/impl/DbComplexImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/util/DbOrders.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/util/DbOrder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/util/impl/DbOrdersImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/util/impl/DbOrderImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/console/ClientPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/console/ClientPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/table/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/table/Order.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/user/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/user/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/util/DbOrder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/util/DbOrder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/util/impl/DbOrderImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/util/impl/DbOrderImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/view/SessionView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/view/SessionView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,38 +50,38 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Notification.DisplayName-DoNotAsk-Statistic Notification Group": "Statistic",
-    "Notification.DoNotAsk-Statistic Notification Group": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "git-widget-placeholder": "master",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Notification.DisplayName-DoNotAsk-Statistic Notification Group&quot;: &quot;Statistic&quot;,
+    &quot;Notification.DoNotAsk-Statistic Notification Group&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "postgresql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;
     ],
-    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
-      "HTTP Request"
+    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
+      &quot;HTTP Request&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="ru.gozhan.lab03pgsql.util.impl" />
@@ -135,7 +138,14 @@
       <workItem from="1681053087667" duration="5178000" />
       <workItem from="1681065505931" duration="2472000" />
       <workItem from="1681135310725" duration="1404000" />
-      <workItem from="1681148793752" duration="3271000" />
+      <workItem from="1681148793752" duration="4944000" />
+      <workItem from="1681205090515" duration="600000" />
+      <workItem from="1681235859343" duration="229000" />
+      <workItem from="1681244078046" duration="998000" />
+      <workItem from="1681287098663" duration="10000" />
+      <workItem from="1681398026805" duration="3136000" />
+      <workItem from="1681422841806" duration="2113000" />
+      <workItem from="1681468779626" duration="2941000" />
     </task>
     <task id="LOCAL-00001" summary="add TODOs">
       <created>1680545149059</created>
@@ -165,5 +175,16 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="add TODOs" />
     <option name="LAST_COMMIT_MESSAGE" value="add TODOs" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ru/gozhan/lab03pgsql/console/ClientPanel.java</url>
+          <line>106</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

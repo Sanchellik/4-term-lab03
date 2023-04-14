@@ -17,6 +17,8 @@ public class Order {
 
     private int seat;
 
+    private int price;
+
     public Order(int clientId, int sessionId, int seat) {
         this.clientId = clientId;
         this.sessionId = sessionId;

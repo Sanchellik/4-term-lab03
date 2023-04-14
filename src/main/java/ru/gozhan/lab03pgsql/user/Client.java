@@ -61,4 +61,9 @@ public class Client implements Discountable {
         }
     }
 
+    public void printInfo() {
+        System.out.println("\nName = " + name + "\nEmail = " + email + "\nBudget = " + budget + "\nStatus = " + status +
+                "\nDiscount = " + calculateDiscount() * 100 + "%");
+    }
+
 }
