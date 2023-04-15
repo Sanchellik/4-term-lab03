@@ -28,4 +28,8 @@ public class Session {
         this.seatCost = seatCost;
     }
 
+//    public Session scanSession() {
+//
+//    }
+
 }

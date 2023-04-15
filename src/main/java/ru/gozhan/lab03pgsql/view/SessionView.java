@@ -28,7 +28,7 @@ public class SessionView {
     private ArrayList<Order> orders;
 
     public String toString() {
-        return id + ") " + cinema.getName() + " " +
+        return id + ". " + cinema.getName() + " " +
                 film.getTitle() + " " + hall.getSupportedFormat() + " " + session.getDateTime();
     }
 

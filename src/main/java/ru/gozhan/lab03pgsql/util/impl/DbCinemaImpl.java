@@ -1,7 +1,6 @@
 package ru.gozhan.lab03pgsql.util.impl;
 
 import ru.gozhan.lab03pgsql.config.ConnectToDbConfig;
-import ru.gozhan.lab03pgsql.constants.MovieFormatEnum;
 import ru.gozhan.lab03pgsql.table.Cinema;
 import ru.gozhan.lab03pgsql.util.DbCinema;
 
@@ -10,8 +9,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 public class DbCinemaImpl implements DbCinema {
 
@@ -34,7 +31,7 @@ public class DbCinemaImpl implements DbCinema {
 
                 String stringOfFormats = (resultSet.getString("cinema_supported_formats"));
 
-                Cinema cinema = new Cinema(id, name, address, parseStringToFormatsEnum(stringOfFormats));
+                Cinema cinema = new Cinema(id, name, address, Cinema.parseStringToFormatsEnum(stringOfFormats));
 
                 cinemas.add(cinema);
 
@@ -49,18 +46,6 @@ public class DbCinemaImpl implements DbCinema {
         }
 
         return new ArrayList<>();
-    }
-
-    public ArrayList<MovieFormatEnum> parseStringToFormatsEnum(String string) {
-        string = string.substring(1, string.length() - 1);
-        List<String> splitedStrings;
-        splitedStrings = Arrays.asList(string.split(","));
-
-        ArrayList<MovieFormatEnum> result = new ArrayList<>();
-        for (String splitString : splitedStrings) {
-            result.add(MovieFormatEnum.valueOf(splitString));
-        }
-        return result;
     }
 
     @Override
@@ -101,7 +86,7 @@ public class DbCinemaImpl implements DbCinema {
 
                 String stringOfFormats = (resultSet.getString("cinema_supported_formats"));
 
-                cinema = new Cinema(id, name, address, parseStringToFormatsEnum(stringOfFormats));
+                cinema = new Cinema(id, name, address, Cinema.parseStringToFormatsEnum(stringOfFormats));
 
             }
 

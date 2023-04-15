@@ -5,8 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import ru.gozhan.lab03pgsql.constants.MovieFormatEnum;
 
-import java.util.ArrayList;
-import java.util.Collections;
+import java.util.Scanner;
 
 @Data
 @NoArgsConstructor
@@ -17,7 +16,6 @@ public class Hall {
 
     private MovieFormatEnum supportedFormat;
 
-//    private ArrayList<Integer> costOfSpaces;
     private int countSeats;
 
     private int cinemaId;
@@ -28,21 +26,17 @@ public class Hall {
         this.cinemaId = cinemaId;
     }
 
-    //    public Hall(int id, MovieFormatEnum supportedFormat, int countSeats, int seatCost, int cinemaId) {
-//        this.id = id;
-//        this.supportedFormat = supportedFormat;
-//        this.costOfSpaces = fillCostOfSpaces(countSeats, seatCost);
-//        this.cinemaId = cinemaId;
-//    }
-//
-//    public Hall(MovieFormatEnum supportedFormat, int countSeats, int seatCost, int cinemaId) {
-//        this.supportedFormat = supportedFormat;
-//        this.costOfSpaces = fillCostOfSpaces(countSeats, seatCost);
-//        this.cinemaId = cinemaId;
-//    }
-//
-//    public ArrayList<Integer> fillCostOfSpaces(int countSeats, int seatCost) {
-//
-//        return new ArrayList<>(Collections.nCopies(countSeats, seatCost));
-//    }
+    public static Hall scanHall(int cinemaId) {
+        System.out.print("\nFormat (choose FORMAT_2D/3D/4D): ");
+
+        try (Scanner scanner = new Scanner(System.in)) {
+            String supportedFormat = scanner.nextLine();
+
+            System.out.print("Number of seats: ");
+            int numberOfSeats = scanner.nextInt();
+
+            return new Hall(MovieFormatEnum.valueOf(supportedFormat), numberOfSeats, cinemaId);
+        }
+    }
+
 }

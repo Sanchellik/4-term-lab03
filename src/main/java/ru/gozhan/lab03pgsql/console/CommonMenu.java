@@ -17,7 +17,7 @@ public class CommonMenu {
                 case 0 -> ClientPanel.registration();
                 case 1 -> ClientPanel.authentication();
 
-                case 2 -> AdminPanel.authentication();
+                case 2 -> AdminPanel.authentication(0);
 
                 case 3 -> System.out.println("\nGoodbye");
             }

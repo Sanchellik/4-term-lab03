@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor;
 import ru.gozhan.lab03pgsql.constants.GenreEnum;
 
 import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Scanner;
 
 @Data
 @NoArgsConstructor
@@ -24,6 +26,22 @@ public class Film {
         this.title = title;
         this.genre = genre;
         this.duration = duration;
+    }
+
+    public static Film scanFilm() {
+        try (Scanner scanner = new Scanner(System.in)) {
+
+            System.out.print("\nTitle: ");
+            String title = scanner.nextLine();
+
+            System.out.print("Genre (HORROR/ROMANCE/ACTION/): ");
+            String genre = scanner.nextLine();
+
+            System.out.print("Duration (style: \"H:mm\"): ");
+            String duration = scanner.nextLine();
+
+            return new Film(title, GenreEnum.valueOf(genre), LocalTime.parse(duration, DateTimeFormatter.ofPattern("H:mm")));
+        }
     }
 
 }
