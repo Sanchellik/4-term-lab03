@@ -2,6 +2,7 @@ package ru.gozhan.lab03pgsql.util.impl;
 
 import ru.gozhan.lab03pgsql.table.*;
 import ru.gozhan.lab03pgsql.util.*;
+import ru.gozhan.lab03pgsql.view.CinemaView;
 import ru.gozhan.lab03pgsql.view.HallView;
 import ru.gozhan.lab03pgsql.view.SessionView;
 
@@ -55,6 +56,32 @@ public class DbComplexImpl implements DbComplex {
             );
         }
         return listOfHallViews;
+    }
+
+    @Override
+    public ArrayList<CinemaView> getAllCinemasInfo() {
+
+        ArrayList<Cinema> cinemas = dbCinema.getAll();
+
+        ArrayList<CinemaView> listOfCinemaViews = new ArrayList<>();
+        for (Cinema cinema : cinemas) {
+
+            ArrayList<Hall> halls = dbHall.getByCinemaId(cinema.getId());
+
+            ArrayList<Order> orders = new ArrayList<>();
+
+            for (Hall hall : halls) {
+
+                ArrayList<Session> sessions = dbSession.getByHallId(hall.getId());
+                for (Session session : sessions) {
+
+                    orders.addAll(dbOrder.getBySessionId(session.getId()));
+                }
+            }
+
+            listOfCinemaViews.add(new CinemaView(cinema, orders));
+        }
+        return listOfCinemaViews;
     }
 
 }

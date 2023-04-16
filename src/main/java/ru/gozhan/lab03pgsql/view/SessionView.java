@@ -32,7 +32,7 @@ public class SessionView {
                 film.getTitle() + " " + hall.getSupportedFormat() + " " + session.getDateTime();
     }
 
-    public void hallScheme(Client client) {
+    public void printHallScheme(Client client) {
 
         for (int i = 1; i < hall.getCountSeats() + 1; ++i) {
 

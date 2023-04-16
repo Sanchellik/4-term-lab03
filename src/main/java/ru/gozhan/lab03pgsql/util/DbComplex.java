@@ -1,5 +1,6 @@
 package ru.gozhan.lab03pgsql.util;
 
+import ru.gozhan.lab03pgsql.view.CinemaView;
 import ru.gozhan.lab03pgsql.view.HallView;
 import ru.gozhan.lab03pgsql.view.SessionView;
 
@@ -10,5 +11,7 @@ public interface DbComplex {
     ArrayList<SessionView> getAllSessionsInfo();
 
     ArrayList<HallView> getAllHallsInfo();
+
+    ArrayList<CinemaView> getAllCinemasInfo();
 
 }

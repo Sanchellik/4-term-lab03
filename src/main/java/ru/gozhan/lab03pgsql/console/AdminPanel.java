@@ -90,6 +90,7 @@ public class AdminPanel {
 
                 case 1 -> {
                     statisticByCinemas();
+                    chooseWhatWant();
                 }
 
 //                case 2 -> {
@@ -100,7 +101,8 @@ public class AdminPanel {
     }
 
     public static void statisticByCinemas() {
-
+        System.out.println();
+        dbComplex.getAllCinemasInfo().forEach(System.out::println);
     }
 
     private static void chooseWhatAdd() {

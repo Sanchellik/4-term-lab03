@@ -128,7 +128,7 @@ public class ClientPanel {
             SessionView selectedSessionView = sessionViews.get(sessionChoise - 1);
 
             System.out.println("\nDefault price: " + selectedSessionView.getSession().getSeatCost());
-            selectedSessionView.hallScheme(client);
+            selectedSessionView.printHallScheme(client);
 
             System.out.println("Choose seat");
             int seatChoise = Integer.parseInt(scanner.nextLine());

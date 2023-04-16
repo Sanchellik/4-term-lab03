@@ -105,4 +105,42 @@ public class DbSessionImpl implements DbSession {
         return null;
     }
 
+    @Override
+    public ArrayList<Session> getByHallId(int hallId) {
+
+        ArrayList<Session> sessions = new ArrayList<>();
+
+        try (Connection conn = ConnectToDbConfig.getConnection();
+             PreparedStatement preparedStatement = conn.prepareStatement(SQL_SELECT_BY_HALL_ID)) {
+
+            preparedStatement.setInt(1, hallId);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+
+                int id = resultSet.getInt("id");
+                int filmId = resultSet.getInt("film_id");
+
+                LocalDateTime dateTime = resultSet.getTimestamp("session_date_time").toLocalDateTime();
+
+                int seatCost = resultSet.getInt("session_seat_cost");
+
+                Session session = new Session(id, filmId, hallId, dateTime, seatCost);
+
+                sessions.add(session);
+
+            }
+
+            return sessions;
+
+        } catch (SQLException e) {
+            System.err.format("SQL State: %s\n%s", e.getSQLState(), e.getMessage());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return new ArrayList<>();
+    }
+
 }

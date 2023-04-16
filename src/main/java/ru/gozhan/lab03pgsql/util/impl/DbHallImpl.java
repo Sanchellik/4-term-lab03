@@ -108,4 +108,43 @@ public class DbHallImpl implements DbHall {
         return null;
     }
 
+    @Override
+    public ArrayList<Hall> getByCinemaId(int cinemaId) {
+
+        ArrayList<Hall> halls = new ArrayList<>();
+
+        try (Connection conn = ConnectToDbConfig.getConnection();
+             PreparedStatement preparedStatement = conn.prepareStatement(SQL_SELECT_BY_CINEMA_ID)) {
+
+            preparedStatement.setInt(1, cinemaId);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+
+                int id = resultSet.getInt("id");
+
+                MovieFormatEnum supportedFormat = MovieFormatEnum
+                        .valueOf(resultSet.getString("hall_format"));
+
+                int countSeats = resultSet.getInt("hall_count_seats");
+
+                Hall hall = new Hall(id, supportedFormat, countSeats, cinemaId);
+
+                halls.add(hall);
+
+            }
+
+            return halls;
+
+        } catch (SQLException e) {
+            System.err.format("SQL State: %s\n%s", e.getSQLState(), e.getMessage());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return new ArrayList<>();
+    }
+
+
 }

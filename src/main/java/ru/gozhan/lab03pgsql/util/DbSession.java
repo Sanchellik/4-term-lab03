@@ -17,4 +17,8 @@ public interface DbSession {
 
     Session getById(int id);
 
+    String SQL_SELECT_BY_HALL_ID = "SELECT * FROM sessions WHERE hall_id = ?";
+
+    ArrayList<Session> getByHallId(int hallId);
+
 }
