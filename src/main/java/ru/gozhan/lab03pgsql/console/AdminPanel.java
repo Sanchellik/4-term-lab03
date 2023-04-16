@@ -3,10 +3,13 @@ package ru.gozhan.lab03pgsql.console;
 import ru.gozhan.lab03pgsql.table.Cinema;
 import ru.gozhan.lab03pgsql.table.Film;
 import ru.gozhan.lab03pgsql.table.Hall;
+import ru.gozhan.lab03pgsql.table.Session;
 import ru.gozhan.lab03pgsql.user.Admin;
 import ru.gozhan.lab03pgsql.util.*;
 import ru.gozhan.lab03pgsql.util.impl.*;
+import ru.gozhan.lab03pgsql.view.HallView;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Scanner;
@@ -18,6 +21,7 @@ public class AdminPanel {
     private static final DbFilm dbFilm = new DbFilmImpl();
     private static final DbHall dbHall = new DbHallImpl();
     private static final DbSession dbSession = new DbSessionImpl();
+    private static final DbComplex dbComplex = new DbComplexImpl();
 
     public static void authentication(int numberOfAttempts) {
 
@@ -105,6 +109,7 @@ public class AdminPanel {
 
                 case 4 -> {
                     addSession();
+                    chooseWhatWant();
                 }
 
             }
@@ -122,24 +127,51 @@ public class AdminPanel {
         try (Scanner scanner = new Scanner(System.in)) {
             int choiceCinemaId = scanner.nextInt();
 
+            if (choiceCinemaId == 0) {
+                chooseWhatAdd();
+            }
+
             dbHall.insert(Hall.scanHall(choiceCinemaId));
         }
     }
 
     public static void addSession() {
 
-        System.out.println("\nIn which hall do you want to do a session?");
+        System.out.println("\nIn which hall do you want to create a session?");
 
         //TODO complexDb
-//        ArrayList<Cinema> cinemas = dbCinema.getAll();
-//        System.out.println("0. Nope");
-//        cinemas.forEach(System.out::println);
-//
-//        try (Scanner scanner = new Scanner(System.in)) {
-//            int choiceCinemaId = scanner.nextInt();
-//
-//            dbHall.insert(Hall.scanHall(choiceCinemaId));
-//        }
+        ArrayList<HallView> hallViews = dbComplex.getAllHallsInfo();
+        System.out.println("0. Nope");
+        hallViews.forEach(System.out::println);
+
+        int choiceHall;
+        try (Scanner scanner = new Scanner(System.in)) {
+            choiceHall = scanner.nextInt();
+
+            if (choiceHall == 0) {
+                chooseWhatAdd();
+            }
+        }
+
+        System.out.println("\nChoose film");
+        ArrayList<Film> films = dbFilm.getAll();
+        System.out.println("0. Nope");
+        films.forEach(System.out::println);
+
+        try (Scanner scanner = new Scanner(System.in)) {
+            int choiceFilm = scanner.nextInt();
+
+            if (choiceFilm == 0) {
+                chooseWhatAdd();
+            }
+
+            dbSession.insert(Session
+                    .scanSession(
+                            choiceFilm,
+                            hallViews.get(choiceHall).getId()
+                    )
+            );
+        }
     }
 
 }

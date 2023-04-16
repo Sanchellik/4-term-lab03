@@ -44,4 +44,8 @@ public class Film {
         }
     }
 
+    public String toString() {
+        return id + ". " + title + " " + genre + " " + duration;
+    }
+
 }

@@ -5,6 +5,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Scanner;
 
 @Data
 @NoArgsConstructor
@@ -28,8 +30,22 @@ public class Session {
         this.seatCost = seatCost;
     }
 
-//    public Session scanSession() {
-//
-//    }
+    public static Session scanSession(int filmId, int hallId) {
+        try (Scanner scanner = new Scanner(System.in)) {
+
+            System.out.print("Date Time (format: \"2023-05-09 21:45:\"): ");
+            String dateTime = scanner.nextLine();
+
+            System.out.print("Cost: ");
+            int seatCost = scanner.nextInt();
+
+            return new Session(
+                    filmId,
+                    hallId,
+                    LocalDateTime.parse(dateTime, DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm")),
+                    seatCost
+            );
+        }
+    }
 
 }
