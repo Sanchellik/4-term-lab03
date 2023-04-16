@@ -17,4 +17,8 @@ public interface DbHall {
 
     Hall getById(int id);
 
+//    String SQL_SELECT_BY_CINEMA_ID = "SELECT * FROM halls WHERE cinema_id = ?";
+//
+//    ArrayList<Hall> getByCinemaId(int cinemaId); //TODO implement it
+
 }

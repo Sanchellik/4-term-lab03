@@ -9,7 +9,6 @@ import ru.gozhan.lab03pgsql.util.*;
 import ru.gozhan.lab03pgsql.util.impl.*;
 import ru.gozhan.lab03pgsql.view.HallView;
 
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Scanner;
@@ -60,16 +59,17 @@ public class AdminPanel {
         System.out.println("3. Logout");
 
         try (Scanner scanner = new Scanner(System.in)) {
-            int choice = scanner.nextInt();
-//            int choice = (scanner.hasNext()) ? scanner.nextInt() : 3;
+            int choice = Integer.parseInt(scanner.nextLine());
 
             switch (choice) {
                 case 1 -> {
-                    //TODO add check statistics
+                    checkStatistics();
+                    chooseWhatWant();
                 }
 
                 case 2 -> {
                     chooseWhatAdd();
+                    chooseWhatWant();
                 }
 
                 case 3 -> {
@@ -79,6 +79,30 @@ public class AdminPanel {
         }
     }
 
+    public static void checkStatistics() {
+        System.out.println("\n1. By cinemas");
+        System.out.println("2. By films");
+
+        try (Scanner scanner = new Scanner(System.in)) {
+            int choice = Integer.parseInt(scanner.nextLine());
+
+            switch (choice) {
+
+                case 1 -> {
+                    statisticByCinemas();
+                }
+
+//                case 2 -> {
+//                    statisticByFilms();
+//                }
+            }
+        }
+    }
+
+    public static void statisticByCinemas() {
+
+    }
+
     private static void chooseWhatAdd() {
         System.out.println("\n1. Add cinema");
         System.out.println("2. Add hall");
@@ -86,30 +110,26 @@ public class AdminPanel {
         System.out.println("4. Add session");
 
         try (Scanner scanner = new Scanner(System.in)) {
-            int choice = scanner.nextInt();
+            int choice = Integer.parseInt(scanner.nextLine());
 
             switch (choice) {
 
                 case 1 -> {
                     Cinema cinema = Cinema.scanCinema();
                     dbCinema.insert(cinema);
-                    chooseWhatWant();
                 }
 
                 case 2 -> {
                     addHall();
-                    chooseWhatWant();
                 }
 
                 case 3 -> {
                     Film film = Film.scanFilm();
                     dbFilm.insert(film);
-                    chooseWhatWant();
                 }
 
                 case 4 -> {
                     addSession();
-                    chooseWhatWant();
                 }
 
             }
@@ -125,7 +145,7 @@ public class AdminPanel {
         cinemas.forEach(System.out::println);
 
         try (Scanner scanner = new Scanner(System.in)) {
-            int choiceCinemaId = scanner.nextInt();
+            int choiceCinemaId = Integer.parseInt(scanner.nextLine());
 
             if (choiceCinemaId == 0) {
                 chooseWhatAdd();
@@ -139,14 +159,13 @@ public class AdminPanel {
 
         System.out.println("\nIn which hall do you want to create a session?");
 
-        //TODO complexDb
         ArrayList<HallView> hallViews = dbComplex.getAllHallsInfo();
         System.out.println("0. Nope");
         hallViews.forEach(System.out::println);
 
         int choiceHall;
         try (Scanner scanner = new Scanner(System.in)) {
-            choiceHall = scanner.nextInt();
+            choiceHall = Integer.parseInt(scanner.nextLine());
 
             if (choiceHall == 0) {
                 chooseWhatAdd();
@@ -159,7 +178,7 @@ public class AdminPanel {
         films.forEach(System.out::println);
 
         try (Scanner scanner = new Scanner(System.in)) {
-            int choiceFilm = scanner.nextInt();
+            int choiceFilm = Integer.parseInt(scanner.nextLine());
 
             if (choiceFilm == 0) {
                 chooseWhatAdd();

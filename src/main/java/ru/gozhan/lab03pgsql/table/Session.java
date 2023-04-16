@@ -37,7 +37,7 @@ public class Session {
             String dateTime = scanner.nextLine();
 
             System.out.print("Cost: ");
-            int seatCost = scanner.nextInt();
+            int seatCost = Integer.parseInt(scanner.nextLine());
 
             return new Session(
                     filmId,

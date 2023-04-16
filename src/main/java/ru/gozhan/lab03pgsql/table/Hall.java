@@ -33,7 +33,7 @@ public class Hall {
             String supportedFormat = scanner.nextLine();
 
             System.out.print("Number of seats: ");
-            int numberOfSeats = scanner.nextInt();
+            int numberOfSeats = Integer.parseInt(scanner.nextLine());
 
             return new Hall(MovieFormatEnum.valueOf(supportedFormat), numberOfSeats, cinemaId);
         }

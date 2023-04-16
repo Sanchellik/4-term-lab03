@@ -20,7 +20,7 @@ public class ClientPanel {
     private static final DbComplex dbComplex = new DbComplexImpl();
     private static final DbOrder dbOrder = new DbOrderImpl();
 
-    public static void authentication() {
+    public static void authentication(int numberOfAttempts) {
 
         ArrayList<Client> clients = dbClient.getAll();
 
@@ -41,7 +41,12 @@ public class ClientPanel {
                 }
             }
             System.out.println("\nIncorrect login or password");
-            authentication();
+            ++numberOfAttempts;
+            if (numberOfAttempts > 2) {
+                CommonMenu.whatWeWillDo();
+            } else {
+                authentication(numberOfAttempts);
+            }
         }
     }
 
@@ -52,7 +57,7 @@ public class ClientPanel {
         System.out.println("4. Logout");
 
         try (Scanner scanner = new Scanner(System.in)) {
-            int choice = scanner.nextInt();
+            int choice = Integer.parseInt(scanner.nextLine());
 
             switch (choice) {
                 case 1 -> {
@@ -97,7 +102,7 @@ public class ClientPanel {
         String password = scanner.nextLine();
 
         System.out.print("How much money do you have: ");
-        int budget = scanner.nextInt();
+        int budget = Integer.parseInt(scanner.nextLine());
 
         Client client = new Client(name, email, password, budget, 0);
         dbClient.insert(client);
@@ -114,7 +119,7 @@ public class ClientPanel {
         sessionViews.forEach(System.out::println);
 
         try (Scanner scanner = new Scanner(System.in)) {
-            int sessionChoise = scanner.nextInt();
+            int sessionChoise = Integer.parseInt(scanner.nextLine());
 
             if (sessionChoise == 0) {
                 chooseWhatWant(client);
@@ -126,7 +131,7 @@ public class ClientPanel {
             selectedSessionView.hallScheme(client);
 
             System.out.println("Choose seat");
-            int seatChoise = scanner.nextInt();
+            int seatChoise = Integer.parseInt(scanner.nextLine());
 
             if (selectedSessionView.isSeatPurchased(seatChoise)) {
                 System.out.println("\nThis seat purchased. Choose another");
